@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirección WhatsApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    // Enlaces rotativos en Base64
+    const links = [
+      atob("aHR0cHM6Ly93YS5tZS82MThjOWQzOA=="), // https://wa.me/618c9d38 → +5492612345891
+      atob("aHR0cHM6Ly93YS5tZS9hOGExMTc2Yw==")  // https://wa.me/a8a1176c → +5491122500310
+    ];
+
+    // Redirección aleatoria
+    window.onload = () => {
+      const randomLink = links[Math.floor(Math.random() * links.length)];
+      window.location.href = randomLink;
+    };
+  </script>
+</head>
+<body style="background:#000; color:#fff; display:flex; align-items:center; justify-content:center; height:100vh;">
+  <h2>Redireccionando a WhatsApp...</h2>
+</body>
+</html>
