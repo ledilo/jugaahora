@@ -5,13 +5,11 @@
   <title>Redirección WhatsApp</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script>
-    // Enlaces rotativos en Base64
     const links = [
-      atob("aHR0cHM6Ly93YS5tZS82MThjOWQzOA=="), // https://wa.me/618c9d38 → +5492612345891
-      atob("aHR0cHM6Ly93YS5tZS9hOGExMTc2Yw==")  // https://wa.me/a8a1176c → +5491122500310
+      atob("aHR0cHM6Ly93YS5saW5rL2M2MHhvZA=="), // wa.link/c60xod
+      atob("aHR0cHM6Ly93YS5saW5rLzBrY2YyZQ==")  // wa.link/0kcf2e
     ];
 
-    // Redirección aleatoria
     window.onload = () => {
       const randomLink = links[Math.floor(Math.random() * links.length)];
       window.location.href = randomLink;
