@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>Redirección WhatsApp</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script>
-    const links = [
-      atob("aHR0cHM6Ly93YS5saW5rLzBrY2YyZQ==")  // wa.link/0kcf2e
-    ];
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirigiendo...</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      const bots = [
+        /facebookexternalhit/i,
+        /Facebot/i,
+        /WhatsApp/i,
+        /Meta/i,
+        /Instagram/i
+      ];
 
-    window.onload = () => {
-      const randomLink = links[Math.floor(Math.random() * links.length)];
-      window.location.href = randomLink;
-    };
-  </script>
-</head>
-<body style="background:#000; color:#fff; display:flex; align-items:center; justify-content:center; height:100vh;">
-  <h2>Redireccionando a WhatsApp...</h2>
-</body>
+      const userAgent = navigator.userAgent;
+      const isBot = bots.some(bot => bot.test(userAgent));
+
+      if (!isBot) {
+        // Número en base64: +5491122500310
+        const encoded = "KzU0OTExMjI1MDAzMTA=";
+        const decoded = atob(encoded);
+
+        // Redirección sin mensaje predefinido
+        window.location.href = `https://wa.me/${decoded}`;
+      } else {
+        document.write("<h3>Gracias por visitar</h3>");
+      }
+    </script>
+  </head>
+  <body>
+    <noscript>Activá JavaScript para continuar.</noscript>
+  </body>
 </html>
